@@ -26,6 +26,10 @@ Checkout the example files to configure Icinga 2:
 * [telegram-service-notification.sh](telegram-service-notification.sh)
 * [icinga2-example.conf](icinga2-example.conf)
 
+## Screenshot
+
+![Screenshot](screenshot.png)
+
 ## Attribution
 
 These scripts and examples are based on a blog post:
