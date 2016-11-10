@@ -13,7 +13,7 @@ Date/Time: $LONGDATETIME
 TEMPLATE
 )
 if [ -n "$NOTIFICATIONCOMMENT" ]; then
-
+    template="$template
 Comment: ($NOTIFICATIONAUTHORNAME) $NOTIFICATIONCOMMENT
 "
 fi
