@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ -n "$ICINGAWEB2_URL" ]; then
-    HOSTDISPLAYNAME="<a href=\"$ICINGAWEB2_URL/host/show?host=$HOSTNAME\">$HOSTDISPLAYNAME</a>"
-    SERVICEDISPLAYNAME="<a href=\"$ICINGAWEB2_URL/service/show?host=$HOSTNAME&service=$SERVICEDESC\">$SERVICEDISPLAYNAME</a>"
+    HOSTDISPLAYNAME="<a href=\"$ICINGAWEB2_URL/monitoring/host/show?host=$HOSTNAME\">$HOSTDISPLAYNAME</a>"
+    SERVICEDISPLAYNAME="<a href=\"$ICINGAWEB2_URL/monitoring/service/show?host=$HOSTNAME&service=$SERVICEDESC\">$SERVICEDISPLAYNAME</a>"
 fi
 template=$(cat <<TEMPLATE
 <strong>$NOTIFICATIONTYPE</strong> $HOSTDISPLAYNAME - $SERVICEDISPLAYNAME is $SERVICESTATE

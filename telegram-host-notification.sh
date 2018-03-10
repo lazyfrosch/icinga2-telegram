@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ -n "$ICINGAWEB2_URL" ]; then
-    HOSTDISPLAYNAME="<a href=\"$ICINGAWEB2_URL/host/show?host=$HOSTNAME\">$HOSTDISPLAYNAME</a>"
+    HOSTDISPLAYNAME="<a href=\"$ICINGAWEB2_URL/monitoring/host/show?host=$HOSTNAME\">$HOSTDISPLAYNAME</a>"
 fi
 template=$(cat <<TEMPLATE
 <strong>$NOTIFICATIONTYPE</strong> - $HOSTDISPLAYNAME is $HOSTSTATE
