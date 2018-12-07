@@ -48,8 +48,9 @@ get_updates() {
   fi
 
   if [ $long_polling -eq 1 ]; then
-    last_update_id="$(jq ".result[-1].update_id" "$tempfile")"
-    ((last_update_id++))
+    if [ "$(jq '.result | length' "$tempfile")" -gt 0 ] && last_update_id="$(jq ".result[-1].update_id" "$tempfile")"; then
+      ((last_update_id++))
+    fi
   fi
 
   echo "/* $(date -R) */"
