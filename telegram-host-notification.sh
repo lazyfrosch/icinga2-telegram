@@ -2,6 +2,7 @@
 if [ -n "$ICINGAWEB2_URL" ]; then
     HOSTDISPLAYNAME="<a href=\"$ICINGAWEB2_URL/monitoring/host/show?host=$HOSTNAME\">$HOSTDISPLAYNAME</a>"
 fi
+HOSTOUTPUT_ESCAPED=$(echo $HOSTOUTPUT | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')
 template=$(cat <<TEMPLATE
 <strong>$NOTIFICATIONTYPE</strong> - $HOSTDISPLAYNAME is $HOSTSTATE
 
@@ -9,7 +10,7 @@ Host: $HOSTALIAS
 Address: $HOSTADDRESS
 Date/Time: $LONGDATETIME
 
-<pre>$HOSTOUTPUT</pre>
+<pre>$HOSTOUTPUT_ESCAPED</pre>
 TEMPLATE
 )
 if [ -n "$NOTIFICATIONCOMMENT" ]; then

@@ -3,13 +3,14 @@ if [ -n "$ICINGAWEB2_URL" ]; then
     HOSTDISPLAYNAME="<a href=\"$ICINGAWEB2_URL/monitoring/host/show?host=$HOSTNAME\">$HOSTDISPLAYNAME</a>"
     SERVICEDISPLAYNAME="<a href=\"$ICINGAWEB2_URL/monitoring/service/show?host=$HOSTNAME&service=$SERVICEDESC\">$SERVICEDISPLAYNAME</a>"
 fi
+SERVICEOUTPUT_ESCAPED=$(echo $SERVICEOUTPUT | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')
 template=$(cat <<TEMPLATE
 <strong>$NOTIFICATIONTYPE</strong> $HOSTDISPLAYNAME - $SERVICEDISPLAYNAME is $SERVICESTATE
 
 Address: $HOSTADDRESS
 Date/Time: $LONGDATETIME
 
-<pre>$SERVICEOUTPUT</pre>
+<pre>$SERVICEOUTPUT_ESCAPED</pre>
 TEMPLATE
 )
 
